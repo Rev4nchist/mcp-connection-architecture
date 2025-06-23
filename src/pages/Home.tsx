@@ -1,10 +1,18 @@
-
 /**
  * Home page component that displays MCP Server Architecture Visual Guide
  * with a hero section and detailed information sections
  */
 import React, { useEffect } from 'react';
-import { ArrowDown, Server, Database, Shield, Globe, Box, Zap, CheckCircle } from 'lucide-react';
+import { 
+  GlobeAltIcon, 
+  CircleStackIcon, 
+  ShieldCheckIcon, 
+  ArchiveBoxIcon, 
+  BoltIcon, 
+  ServerIcon,
+  CheckCircleIcon 
+} from '@heroicons/react/24/outline';
+import HeroHeader, { ScrollProgressBar } from "@/components/HeroHeader";
 
 const Home: React.FC = () => {
   // Animation effect for sections to fade in when scrolled into view
@@ -47,39 +55,18 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section with Mesh Gradient */}
-      <div className="relative w-full bg-black text-white overflow-hidden">
-        {/* Mesh Gradient Background */}
-        <div className="absolute inset-0 opacity-70">
-          <div className="absolute top-0 left-0 w-1/2 h-full bg-purple-700 rounded-full blur-[100px] transform -translate-x-1/2"></div>
-          <div className="absolute top-1/4 right-0 w-1/2 h-1/2 bg-blue-600 rounded-full blur-[100px] transform translate-x-1/3"></div>
-          <div className="absolute bottom-0 left-1/3 w-1/3 h-1/3 bg-indigo-500 rounded-full blur-[100px]"></div>
-        </div>
+      <HeroHeader />
+      <ScrollProgressBar type="bar" color="#8b5cf6" strokeSize={3} />
 
-        <div className="container mx-auto px-4 py-24 relative z-10">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight leading-tight font-display">
-            MCP Server Architecture & Data Flow
-          </h1>
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl font-light">
-            Building intelligent agents & personal assistants with secure connections to the tools & resources they need to be truly effective.
-          </p>
-          <div className="flex flex-col items-center gap-3 mx-auto text-center">
-            <span className="text-lg font-medium">Scroll to explore</span>
-            <div className="animate-bounce-slow bg-white/10 rounded-full p-2 backdrop-blur-sm">
-              <ArrowDown className="h-6 w-6" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 py-16">
+      {/* Main Content */}
+      <main id="main-content" className="container mx-auto px-4 py-16">
         {/* Data Sources Section */}
         <section className="mb-24 animate-section opacity-100 transition-opacity duration-700">
           <h2 className="text-3xl font-bold mb-10 text-center">Company Data Sources</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-blue-50 p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-blue-100">
               <div className="flex items-center mb-4">
-                <Globe className="h-8 w-8 text-blue-600 mr-3" />
+                <GlobeAltIcon className="h-8 w-8 text-blue-600 mr-3" />
                 <h3 className="text-xl font-semibold">Microsoft 365/Teams</h3>
               </div>
               <p>Collaboration platform and productivity suite</p>
@@ -87,7 +74,7 @@ const Home: React.FC = () => {
             
             <div className="bg-blue-50 p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-blue-100">
               <div className="flex items-center mb-4">
-                <Database className="h-8 w-8 text-blue-600 mr-3" />
+                <CircleStackIcon className="h-8 w-8 text-blue-600 mr-3" />
                 <h3 className="text-xl font-semibold">SharePoint/OneDrive</h3>
               </div>
               <p>Document storage and content management</p>
@@ -95,7 +82,7 @@ const Home: React.FC = () => {
             
             <div className="bg-blue-50 p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-blue-100">
               <div className="flex items-center mb-4">
-                <Database className="h-8 w-8 text-blue-600 mr-3" />
+                <CircleStackIcon className="h-8 w-8 text-blue-600 mr-3" />
                 <h3 className="text-xl font-semibold">SQL Databases</h3>
               </div>
               <p>Structured data storage and retrieval</p>
@@ -103,7 +90,7 @@ const Home: React.FC = () => {
             
             <div className="bg-blue-50 p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-blue-100">
               <div className="flex items-center mb-4">
-                <Database className="h-8 w-8 text-blue-600 mr-3" />
+                <CircleStackIcon className="h-8 w-8 text-blue-600 mr-3" />
                 <h3 className="text-xl font-semibold">CRM Systems</h3>
               </div>
               <p>Customer relationship management platforms</p>
@@ -117,7 +104,7 @@ const Home: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-green-50 p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-green-100">
               <div className="flex items-center mb-4">
-                <Globe className="h-8 w-8 text-green-600 mr-3" />
+                <GlobeAltIcon className="h-8 w-8 text-green-600 mr-3" />
                 <h3 className="text-xl font-semibold">Public/Internal Data</h3>
               </div>
               <ul className="list-disc pl-5 space-y-2">
@@ -129,7 +116,7 @@ const Home: React.FC = () => {
             
             <div className="bg-yellow-50 p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-yellow-100">
               <div className="flex items-center mb-4">
-                <Shield className="h-8 w-8 text-yellow-600 mr-3" />
+                <ShieldCheckIcon className="h-8 w-8 text-yellow-600 mr-3" />
                 <h3 className="text-xl font-semibold">Confidential Data</h3>
               </div>
               <ul className="list-disc pl-5 space-y-2">
@@ -141,7 +128,7 @@ const Home: React.FC = () => {
             
             <div className="bg-red-50 p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:bg-red-100">
               <div className="flex items-center mb-4">
-                <Shield className="h-8 w-8 text-red-600 mr-3" />
+                <ShieldCheckIcon className="h-8 w-8 text-red-600 mr-3" />
                 <h3 className="text-xl font-semibold">Restricted Data</h3>
               </div>
               <ul className="list-disc pl-5 space-y-2">
@@ -160,7 +147,7 @@ const Home: React.FC = () => {
           {/* OpenAI/Claude-Hosted MCP */}
           <div className="mb-16 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg shadow-md p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
             <div className="flex items-center mb-6">
-              <Globe className="h-10 w-10 text-blue-600 mr-4" />
+              <GlobeAltIcon className="h-10 w-10 text-blue-600 mr-4" />
               <h3 className="text-2xl font-semibold">OpenAI/Claude-Hosted MCP</h3>
             </div>
             
@@ -206,7 +193,7 @@ const Home: React.FC = () => {
           {/* Self-Hosted Docker MCP */}
           <div className="mb-16 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg shadow-md p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
             <div className="flex items-center mb-6">
-              <Box className="h-10 w-10 text-indigo-600 mr-4" />
+              <ArchiveBoxIcon className="h-10 w-10 text-indigo-600 mr-4" />
               <h3 className="text-2xl font-semibold">Self-Hosted Docker MCP</h3>
             </div>
             
@@ -261,7 +248,7 @@ const Home: React.FC = () => {
           {/* Zapier MCP Hub */}
           <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg shadow-md p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
             <div className="flex items-center mb-6">
-              <Zap className="h-10 w-10 text-purple-600 mr-4" />
+              <BoltIcon className="h-10 w-10 text-purple-600 mr-4" />
               <h3 className="text-2xl font-semibold">Zapier MCP Hub</h3>
             </div>
             
@@ -313,7 +300,7 @@ const Home: React.FC = () => {
           <div className="mb-16">
             <h3 className="text-2xl font-semibold mb-6 flex items-center">
               <div className="bg-blue-100 p-2 rounded-full mr-3">
-                <CheckCircle className="h-6 w-6 text-blue-600" />
+                <CheckCircleIcon className="h-6 w-6 text-blue-600" />
               </div>
               Complexity Assessment
             </h3>
@@ -352,7 +339,7 @@ const Home: React.FC = () => {
           <div className="mb-16">
             <h3 className="text-2xl font-semibold mb-6 flex items-center">
               <div className="bg-green-100 p-2 rounded-full mr-3">
-                <CheckCircle className="h-6 w-6 text-green-600" />
+                <CheckCircleIcon className="h-6 w-6 text-green-600" />
               </div>
               Recommended Pilot Approach
             </h3>
@@ -392,7 +379,7 @@ const Home: React.FC = () => {
           <div>
             <h3 className="text-2xl font-semibold mb-6 flex items-center">
               <div className="bg-red-100 p-2 rounded-full mr-3">
-                <Shield className="h-6 w-6 text-red-600" />
+                <CheckCircleIcon className="h-6 w-6 text-red-600" />
               </div>
               Security & Compliance Framework
             </h3>
@@ -426,13 +413,16 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
-      </div>
+      </main>
 
       {/* Footer */}
-      <footer className="bg-gray-100 py-8">
-        <div className="container mx-auto px-4 text-center text-gray-600">
-          <p>MCP Server Architecture Visual Guide - Created for educational purposes</p>
-          <p className="text-sm mt-2">© 2025 All Rights Reserved</p>
+      <footer className="bg-gray-800 text-white py-8">
+        <div className="container mx-auto px-4 text-center">
+          <div className="flex justify-center items-center mb-4">
+            <CheckCircleIcon className="h-6 w-6 text-green-500 mr-2" />
+            <p>All Systems Operational</p>
+          </div>
+          <p>&copy; 2024 MCP Connection Solutions. All Rights Reserved.</p>
         </div>
       </footer>
     </div>
