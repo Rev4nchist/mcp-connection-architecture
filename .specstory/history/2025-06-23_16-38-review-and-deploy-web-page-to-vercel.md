@@ -1904,3 +1904,308 @@ _**Assistant**_
 
 ---
 
+You've made a crucial observation. Thank you for pointing that out. The difference in behavior is the key to the solution.
+
+You are correct: the words "Building" and "Intelligent" are being rendered differently from the words in the typewriter.
+
+*   **Problem:** The first two words are direct text children of the `<h1>` tag, which has the gradient and text-clipping styles applied to it.
+*   **Why the 3rd word is fine:** The typewriter words are inside a separate `<span>`, which has its *own* set of gradient and clipping styles. This nested structure causes the browser to calculate its bounding box differently, correctly accounting for the letter descenders.
+
+**The Fix:**
+
+I will make the structure consistent. I will remove the gradient styling from the `<h1>` and wrap "Building Intelligent" in its own `<span>` with the exact same styling method as the typewriter part. This ensures both parts of the title are rendered the same way.
+
+I will now apply this structural fix to the `HeroHeader.tsx` file.
+
+---
+
+```diff
+              className="space-y-4"
+            >
+-             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-relaxed bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
++             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-relaxed">
++               <span className="bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
+                  Building Intelligent{" "}
++               </span>
+                <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
+                  <Typewriter
+```
+
+---
+
+Excellent. The structural change has been applied.
+
+By wrapping both parts of the title in their own `<span>` tags with identical styling effects, they should now render consistently, and the clipping issue on the descenders should be resolved.
+
+Your browser should have reloaded with the fix. Please take a look and let me know if it's finally displaying correctly.
+
+---
+
+_**User**_
+
+This is perfect. Let's make a commit to GitHub on the main branch so that it's picked up by Vercel for deployment. 
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+Of course. Let's commit these design improvements to get them deployed.
+
+I'll now stage all the changes, create a commit with a descriptive message, and push it to the `main` branch on GitHub. Vercel will pick it up from there and trigger a new deployment automatically.
+
+---
+
+```bash
+git add .; git commit -m "feat: Replace header with animated component and update icons"; git push origin main
+```
+
+```
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> cd "C:/Users/david.hayes/Downloads/Your 
+Guide to MCP Connections" && git init && git add . &                cd "C:/Users/david.hayes/Downloads/Yo
+ur Guide to MCP Connections" && git init && git add . && git commit -m "Initial commit"
+At line:1 char:67
++ ... Users/david.hayes/Downloads/Your Guide to MCP Connections" && git ini ...
++                                                                ~~
+The token '&&' is not a valid statement separator in this version.
+At line:1 char:79
++ ... hayes/Downloads/Your Guide to MCP Connections" && git init && git add ...
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidEndOfLine
+
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> git init; git add .; git commit -m "Init
+ial commit                                                          git init; git add .; git commit -m "I
+nitial commit"
+warning: in the working copy of 'src/App.tsx', LF will be replaced by CRLF the next time Git touches it
+
+
+warning: in the working copy of 'src/components/ui/accordion.tsx', LF will be replaced by CRLF the next t
+imewarning: in the working copy of 'src/components/ui/breadcrumb.tsx', LF will be replaced by CRLF the ne
+xt time Git touches it
+warning: in the working copy of 'src/components/ui/button.tsx', LF will be replaced by CRLF the next time
+ Git touches it
+warning: in the working copy of 'src/components/ui/calendar.tsx', LF will be replaced by CRLF the next ti
+me Git touches it
+warning: in the working copy of 'src/components/ui/card.tsx', LF will be replaced by CRLF the next time G
+it touches it
+warning: in the working copy of 'src/components/ui/carousel.tsx', LF will be replaced by CRLF the next ti
+me Git touches it
+warning: in the working copy of 'src/components/ui/chart.tsx', LF will be replaced by CRLF the next time 
+Git touches it
+warning: in the working copy of 'src/components/ui/checkbox.tsx', LF will be replaced by CRLF the next ti
+me Git touches it
+warning: in the working copy of 'src/components/ui/collapsible.tsx', LF will be replaced by CRLF the next
+ time Git touches it
+warning: in the working copy of 'src/components/ui/command.tsx', LF will be replaced by CRLF the next tim
+e Git touches it
+warning: in the working copy of 'src/components/ui/context-menu.tsx', LF will be replaced by CRLF the nex
+t time Git touches it
+warning: in the working copy of 'src/components/ui/dialog.tsx', LF will be replaced by CRLF the next time
+ Git touches it
+warning: in the working copy of 'src/components/ui/drawer.tsx', LF will be replaced by CRLF the next time
+ Git touches it
+warning: in the working copy of 'src/components/ui/dropdown-menu.tsx', LF will be replaced by CRLF the ne
+xt time Git touches it
+warning: in the working copy of 'src/components/ui/form.tsx', LF will be replaced by CRLF the next time G
+it touches it
+warning: in the working copy of 'src/components/ui/hover-card.tsx', LF will be replaced by CRLF the next 
+time Git touches it
+warning: in the working copy of 'src/components/ui/input-otp.tsx', LF will be replaced by CRLF the next t
+ime Git touches it
+warning: in the working copy of 'src/components/ui/input.tsx', LF will be replaced by CRLF the next time 
+Git touches it
+warning: in the working copy of 'src/components/ui/label.tsx', LF will be replaced by CRLF the next time 
+Git touches it
+warning: in the working copy of 'src/components/ui/menubar.tsx', LF will be replaced by CRLF the next tim
+e Git touches it
+warning: in the working copy of 'src/components/ui/navigation-menu.tsx', LF will be replaced by CRLF the 
+next time Git touches it
+warning: in the working copy of 'src/components/ui/pagination.tsx', LF will be replaced by CRLF the next 
+time Git touches it
+warning: in the working copy of 'src/components/ui/popover.tsx', LF will be replaced by CRLF the next tim
+e Git touches it
+warning: in the working copy of 'src/components/ui/progress.tsx', LF will be replaced by CRLF the next ti
+me Git touches it
+warning: in the working copy of 'src/components/ui/radio-group.tsx', LF will be replaced by CRLF the next
+ time Git touches it
+warning: in the working copy of 'src/components/ui/resizable.tsx', LF will be replaced by CRLF the next t
+ime Git touches it
+warning: in the working copy of 'src/components/ui/scroll-area.tsx', LF will be replaced by CRLF the next
+ time Git touches it
+warning: in the working copy of 'src/components/ui/select.tsx', LF will be replaced by CRLF the next time
+ Git touches it
+warning: in the working copy of 'src/components/ui/separator.tsx', LF will be replaced by CRLF the next t
+ime Git touches it
+warning: in the working copy of 'src/components/ui/sheet.tsx', LF will be replaced by CRLF the next time 
+Git touches it
+warning: in the working copy of 'src/components/ui/sidebar.tsx', LF will be replaced by CRLF the next tim
+e Git touches it
+warning: in the working copy of 'src/components/ui/skeleton.tsx', LF will be replaced by CRLF the next ti
+me Git touches it
+warning: in the working copy of 'src/components/ui/slider.tsx', LF will be replaced by CRLF the next time
+ Git touches it
+warning: in the working copy of 'src/components/ui/sonner.tsx', LF will be replaced by CRLF the next time
+ Git touches it
+warning: in the working copy of 'src/components/ui/switch.tsx', LF will be replaced by CRLF the next time
+ Git touches it
+warning: in the working copy of 'src/components/ui/table.tsx', LF will be replaced by CRLF the next time 
+Git touches it
+warning: in the working copy of 'src/components/ui/tabs.tsx', LF will be replaced by CRLF the next time G
+it touches it
+warning: in the working copy of 'src/components/ui/textarea.tsx', LF will be replaced by CRLF the next ti
+me Git touches it
+warning: in the working copy of 'src/components/ui/toast.tsx', LF will be replaced by CRLF the next time 
+Git touches it
+warning: in the working copy of 'src/components/ui/toaster.tsx', LF will be replaced by CRLF the next tim
+e Git touches it
+warning: in the working copy of 'src/components/ui/toggle-group.tsx', LF will be replaced by CRLF the nex
+t time Git touches it
+warning: in the working copy of 'src/components/ui/toggle.tsx', LF will be replaced by CRLF the next time
+ Git touches it
+warning: in the working copy of 'src/components/ui/tooltip.tsx', LF will be replaced by CRLF the next tim
+e Git touches it
+warning: in the working copy of 'src/hooks/use-mobile.tsx', LF will be replaced by CRLF the next time Git
+ touches it
+warning: in the working copy of 'src/hooks/use-toast.ts', LF will be replaced by CRLF the next time Git t
+ouches it
+warning: in the working copy of 'src/index.css', LF will be replaced by CRLF the next time Git touches it
+
+warning: in the working copy of 'src/lib/utils.ts', LF will be replaced by CRLF the next time Git touches
+ it
+warning: in the working copy of 'src/main.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/Home.tsx', LF will be replaced by CRLF the next time Git touch
+es it
+warning: in the working copy of 'src/shadcn.css', LF will be replaced by CRLF the next time Git touches i
+t
+warning: in the working copy of 'tailwind.config.js', LF will be replaced by CRLF the next time Git touch
+es it
+warning: in the working copy of 'tsconfig.json', LF will be replaced by CRLF the next time Git touches it
+
+[master (root-commit) 2b8c0b2] Initial commit
+ Committer: Rev4nchist <David.Hayes@fourth.com>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 66 files changed, 6204 insertions(+)
+ create mode 100644 .cursorindexingignore
+ create mode 100644 .gitignore
+ create mode 100644 .specstory/.gitignore
+ create mode 100644 .specstory/history/2025-06-23_16-38-review-and-deploy-web-page-to-vercel.md
+ create mode 100644 index.html
+ create mode 100644 package.json
+ create mode 100644 scripts/build.mjs
+ create mode 100644 src/App.tsx
+ create mode 100644 src/components/ui/accordion.tsx
+ create mode 100644 src/components/ui/alert-dialog.tsx
+ create mode 100644 src/components/ui/alert.tsx
+ create mode 100644 src/components/ui/aspect-ratio.tsx
+ create mode 100644 src/components/ui/avatar.tsx
+ create mode 100644 src/components/ui/badge.tsx
+ create mode 100644 src/components/ui/breadcrumb.tsx
+ create mode 100644 src/components/ui/button.tsx
+ create mode 100644 src/components/ui/calendar.tsx
+ create mode 100644 src/components/ui/card.tsx
+ create mode 100644 src/components/ui/carousel.tsx
+ create mode 100644 src/components/ui/chart.tsx
+ create mode 100644 src/components/ui/checkbox.tsx
+ create mode 100644 src/components/ui/collapsible.tsx
+ create mode 100644 src/components/ui/command.tsx
+ create mode 100644 src/components/ui/context-menu.tsx
+ create mode 100644 src/components/ui/dialog.tsx
+ create mode 100644 src/components/ui/drawer.tsx
+ create mode 100644 src/components/ui/dropdown-menu.tsx
+ create mode 100644 src/components/ui/form.tsx
+ create mode 100644 src/components/ui/hover-card.tsx
+ create mode 100644 src/components/ui/input-otp.tsx
+ create mode 100644 src/components/ui/input.tsx
+ create mode 100644 src/components/ui/label.tsx
+ create mode 100644 src/components/ui/menubar.tsx
+ create mode 100644 src/components/ui/navigation-menu.tsx
+ create mode 100644 src/components/ui/pagination.tsx
+ create mode 100644 src/components/ui/popover.tsx
+ create mode 100644 src/components/ui/progress.tsx
+ create mode 100644 src/components/ui/radio-group.tsx
+ create mode 100644 src/components/ui/resizable.tsx
+ create mode 100644 src/components/ui/scroll-area.tsx
+ create mode 100644 src/components/ui/select.tsx
+ create mode 100644 src/components/ui/separator.tsx
+ create mode 100644 src/components/ui/sheet.tsx
+ create mode 100644 src/components/ui/sidebar.tsx
+ create mode 100644 src/components/ui/skeleton.tsx
+ create mode 100644 src/components/ui/slider.tsx
+ create mode 100644 src/components/ui/sonner.tsx
+ create mode 100644 src/components/ui/switch.tsx
+ create mode 100644 src/components/ui/table.tsx
+ create mode 100644 src/components/ui/tabs.tsx
+ create mode 100644 src/components/ui/textarea.tsx
+ create mode 100644 src/components/ui/toast.tsx
+ create mode 100644 src/components/ui/toaster.tsx
+ create mode 100644 src/components/ui/toggle-group.tsx
+ create mode 100644 src/components/ui/toggle.tsx
+ create mode 100644 src/components/ui/tooltip.tsx
+ create mode 100644 src/hooks/use-mobile.tsx
+ create mode 100644 src/hooks/use-toast.ts
+ create mode 100644 src/index.css
+ create mode 100644 src/lib/utils.ts
+ create mode 100644 src/main.tsx
+ create mode 100644 src/pages/Home.tsx
+ create mode 100644 src/shadcn.css
+ create mode 100644 tailwind.config.js
+ create mode 100644 tsconfig.json
+ create mode 100644 vercel.json
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> git remote add origin "https://github.co
+m/R
+                                                                 git remote add origin "https://github.co
+m/R
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> git remote add origin "https://github.co
+m/R
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> git remote add origin "https://github.co
+m/R
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> git remote add origin "https://github.co
+m/R
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> git remote add origin "https://github.co
+m/R
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> git remote add origin "https://github.co
+m/R
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> git remote add origin "https://github.co
+m/R
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> git remote add origin "https://github.co
+m/R
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> git remote add origin "https://github.co
+m/R
+ev4nchist/mcp-connection-architecture.git"; git branch -M main; git push -u origin main
+Enumerating objects: 77, done.
+Counting objects: 100% (77/77), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (72/72), done.
+Writing objects: 100% (77/77), 53.57 KiB | 1.85 MiB/s, done.
+Total 77 (delta 7), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (7/7), done.
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> git push -u origin main
+branch 'main' set up to track 'origin/main'.
+Everything up-to-date
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> git add .; git commit -m "feat: Replace 
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> git add .; git commit -m "feat: Replace 
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> git add .; git commit -m "feat: Replace 
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> git add .; git commit -m "feat: Replace 
+PS C:\Users\david.hayes\Downloads\Your Guide to MCP Connections> git add .; git commit -m "feat: Replace 
+
+```
+
+---
+
+
+
+---
+
